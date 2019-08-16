@@ -1,4 +1,4 @@
-import { USER_ACTIONS } from '../consts/userConstants';
+import { USER_ACTIONS } from '../consts';
 
 export default (state = {}, action) => {
   switch (action.type) {

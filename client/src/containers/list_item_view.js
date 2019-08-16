@@ -12,8 +12,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-/*
- Here we are creating a Higher order component
- https://facebook.github.io/react/docs/higher-order-components.html
- */
 export default connect(mapStateToProps, mapDispatchToProps)(ItemView);

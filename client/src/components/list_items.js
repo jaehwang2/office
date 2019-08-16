@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MenuItem from './menu_items';
+import Button from 'react-bootstrap/Button';
 
 class ListView extends Component {
   renderList() {
@@ -7,10 +9,11 @@ class ListView extends Component {
     return Object.keys(listItems).map((key) => {
       const item = listItems[key];
       return (
+
         <li
           key={item.name}
         >
-          <button onClick={() => previewItem(item.name)}>{ item.name }</button>
+          <Button onClick={() => previewItem(item.name)}>{ item.name }</Button>
         </li>
       );
     });
@@ -21,6 +24,7 @@ class ListView extends Component {
         <ul>
           { this.renderList() }
         </ul>
+        <MenuItem name="hello" />
       </div>
     );
   }

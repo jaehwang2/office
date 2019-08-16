@@ -1,11 +1,4 @@
-import { LIST_ACTIONS } from '../consts/action_types';
-
-export const listActions = {
-  previewItem,
-  viewItem,
-  addItem,
-  clearItem
-}
+import { LIST_ACTIONS } from '../consts';
 
 const previewItem = name => ({
   type: LIST_ACTIONS.ITEM_PREVIEW,
@@ -25,3 +18,10 @@ const addItem = item => ({
 const clearItem = () => ({
   type: LIST_ACTIONS.ITEM_CLEAR,
 });
+
+export const listActions = {
+  previewItem,
+  viewItem,
+  addItem,
+  clearItem,
+}

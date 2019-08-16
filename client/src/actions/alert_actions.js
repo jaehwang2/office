@@ -18,5 +18,5 @@ const clear = message => ({
 export const alertActions = {
   success,
   error,
-  clear
-}
+  clear,
+};

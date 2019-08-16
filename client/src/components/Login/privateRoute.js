@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 function PrivateRoute({ component: Component, ...rest }) {
-  const local = typeof localstorage === 'undefined' ? false : localStorage.getItem('user');
+  // const local = typeof localstorage === 'undefined' ? false : localStorage.getItem('user');
+  const local = 1;
   if (local) {
-    console.log('no local');
     return (
-      <Component {...props} />
+      <Component />
     );
   }
-  console.log('no local2');
   return (
     <Route
       {...rest}

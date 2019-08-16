@@ -30,8 +30,7 @@ class Login extends Component {
     }
   }
 
-  render(){
-    const { loggingIn } = this.props;
+  render() {
     const { username, password, submitted } = this.state;
     return (
             <div className="col-md-6 col-md-offset-3">

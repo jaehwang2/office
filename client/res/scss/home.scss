@@ -3,6 +3,7 @@
   .list_items {
     flex: 1;
     padding: 1rem;
+    height: 100%;
   }
   .preview {
     flex: 2;
@@ -18,24 +19,24 @@
     p {
       text-align: center;
     }
-    button {
-      font-size: 1rem;
-    }
+    //button {
+    //  font-size: 1rem;
+    //}
   }
   ul {
     list-style-type: none;
     padding: 0;
     li {
       margin: 0.5rem 0;
-      button {
-        width: 100%;
-        font-size: 1.5rem;
-        transition: all 0.3s;
-        text-transform: capitalize;
-        &:hover {
-          cursor: pointer;
-        }
-      }
+      //button {
+      //  width: 100%;
+      //  font-size: 1.5rem;
+      //  transition: all 0.3s;
+      //  text-transform: capitalize;
+      //  &:hover {
+      //    cursor: pointer;
+      //  }
+      //}
     }
   }
 }

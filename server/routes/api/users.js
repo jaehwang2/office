@@ -13,86 +13,85 @@ GET('/all', () => db.users.all());
 GET('/total', () => db.users.total());
 
 
-
-
 POST('/add', req => db.users.add(req.body.username, req.body.password));
 LOGIN('/login', req => db.users.findUser(req.body.username, req.body.password));
 
 function GET(url, handler) {
-    router.get(url, (req, res) => {
-      handler(req)
-          .then(data => {
-              res.json({
-                  success: true,
-                  data
-              });
-          })
-          .catch(error => {
-              res.json({
-                  success: false,
-                  error: error.message || error
-              });
-          });
-    });
+  router.get(url, (req, res) => {
+    handler(req)
+      .then((data) => {
+        res.json({
+          success: true,
+          data,
+        });
+      })
+      .catch((error) => {
+        res.json({
+          success: false,
+          error: error.message || error,
+        });
+      });
+  });
 }
 
 function POST(url, handler) {
   router.post(url, (req, res) => {
     handler(req)
-        .then(data => {
-            res.json({
-                success: true,
-            });
-        })
-        .catch(error => {
-            res.json({
-                success: false,
-                error: error.message || error
-            });
+      .then((data) => {
+        res.json({
+          success: true,
         });
+      })
+      .catch((error) => {
+        res.json({
+          success: false,
+          error: error.message || error,
+        });
+      });
   });
 }
 
 function LOGIN(url, handler) {
   router.post(url, (req, res) => {
-    const secret = config.secret
+    const secret = config.secret;
     handler(req)
-      .then(user => {
-        if(!user){
-          throw new Error('login Failed')
+      .then((user) => {
+        if (!user) {
+          throw new Error('login Failed');
         } else {
           const p = new Promise((resolve, reject) => {
             jwt.sign(
               {
                 id: user.id,
-                username: user.username
+                username: user.username,
               },
               secret,
               {
                 expiresIn: '7d',
                 issuer: 'joey',
-                subject: 'userInfo'
+                subject: 'userInfo',
               }, (error, token) => {
-                if (error) reject(error)
-                  resolve(token)
-              })
-          })
-          return p
+                if (error) reject(error);
+                resolve(token);
+              },
+            );
+          });
+          return p;
         }
       })
-      .then(token => {
+      .then((token) => {
         res.json({
           success: true,
           message: 'logged in successfully',
-          token
-        })
-      })
-      .catch(error => {
-        res.json({
-            success: false,
-            error: error.message || error
+          token,
         });
       })
+      .catch((error) => {
+        res.json({
+          success: false,
+          error: error.message || error,
+        });
+      });
   });
 }
 

@@ -1,11 +1,17 @@
 import React from 'react';
-import ListItems from '../containers/list_items';
+import Menu from '../containers/Menu'
 import ListItemPreview from '../containers/list_item_preview';
+import Header from './header';
 
 const Home = () => (
-  <div className="home">
-    <ListItems />
-    <ListItemPreview />
+  <div>
+    <div>
+      <Header />
+    </div>
+    <div className="home">
+      <Menu />
+      <ListItemPreview />
+    </div>
   </div>
 );
 

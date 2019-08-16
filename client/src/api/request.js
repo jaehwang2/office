@@ -9,7 +9,7 @@ export default class Request {
     });
   }
 
-  getReq(url, params = {}, method) {
+  sendReq(url, params = {}, method) {
     return this.axiosInstance({
       method,
       url,
@@ -21,11 +21,11 @@ export default class Request {
   }
 
   _get(path, params = {}) {
-    this.getReq(path, params, 'GET');
+    this.sendReq(path, params, 'GET');
   }
 
   _post(path, params = {}) {
-    this._getReq(path, params, 'POST');
+    this.sendReq(path, params, 'POST');
   }
 
   handleResponse(response) {

@@ -13,7 +13,7 @@ function login(username, password) {
   return (dispatch) => {
     dispatch(request({ username }));
     const vida = new Vida();
-    vida.getReview()
+    vida.getReview();
       // .then((user) => {
       //   console.log('getreview');
       // });
