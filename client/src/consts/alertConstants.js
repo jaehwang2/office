@@ -1,5 +1,0 @@
-export const ALERT_ACTIONS = {
-  SUCCESS: 'ALERT_SUCCESS',
-  ERROR: 'ALERT_ERROR',
-  CLEAR: 'ALERT_CLEAR',
-};

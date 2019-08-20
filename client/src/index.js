@@ -29,17 +29,3 @@ const render = (Component) => {
 };
 
 render(App);
-
-// if (module.hot) {
-//   module.hot.accept('./app', () => {
-//     // eslint-disable-next-line
-//     const nextApp = require('./app').default;
-//     render(nextApp);
-//   });
-// }
-
-// module.hot.accept('./reducers', () => {
-//   // eslint-disable-next-line
-//   const nextRootReducer = require('./reducers/index');
-//   store.replaceReducer(nextRootReducer);
-// });

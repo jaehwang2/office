@@ -1,5 +1,5 @@
 import { LIST_ACTIONS, MENU_ACTIONS } from '../consts';
-import Vida from '../api/api';
+import { getReview } from '../api/vida';
 
 export const menuActions = {
   clickMenu,
@@ -7,39 +7,20 @@ export const menuActions = {
 
 function clickMenu(item) {
   return (dispatch) => {
-    dispatch(request({ username }));
-    const vida = new Vida();
-    vida.getReview();
+    dispatch(request({ item }));
+
+    if (item.name === '상품 권한') {
+      getReview()
+        .then((data) => {
+          dispatch(success(data));
+        })
+        .catch((error) => {
+          dispatch(failure(item));
+        });
+    }
   };
 
-
-  function request(item) { return { type: MENU_ACTIONS.MENU_REQUEST, item }; }
-  function success(item) { return { type: MENU_ACTIONS.MENU_SUCCESS, item }; }
-  function failure(item) { return { type: MENU_ACTIONS.MENU_FAILURE, item }; }
-}
-
-const previewItem = name => ({
-  type: LIST_ACTIONS.ITEM_PREVIEW,
-  name, // shorthand for name: name
-});
-
-const viewItem = name => ({
-  type: LIST_ACTIONS.ITEM_VIEW,
-  name,
-});
-
-const addItem = item => ({
-  type: LIST_ACTIONS.ITEM_ADD,
-  item, // shorthand for item: item
-});
-
-const clearItem = () => ({
-  type: LIST_ACTIONS.ITEM_CLEAR,
-});
-
-export const listActions = {
-  previewItem,
-  viewItem,
-  addItem,
-  clearItem,
+  function request() { return { type: MENU_ACTIONS.MENU_REQUEST, item }; }
+  function success(data) { return { type: MENU_ACTIONS.MENU_SUCCESS, data }; }
+  function failure() { return { type: MENU_ACTIONS.MENU_FAILURE, item }; }
 }

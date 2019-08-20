@@ -8,7 +8,7 @@ class MenuItem extends Component {
     return Object.keys(menuItems).map((key) => {
       const item = menuItems[key];
       return (
-        <ListGroup.Item action variant="light" onClick={() => handleClickMenu(item)}>
+        <ListGroup.Item size="lg" key={item.name} action variant="light" onClick={() => handleClickMenu(item)}>
           { item.name }
         </ListGroup.Item>
       );
@@ -27,7 +27,7 @@ class MenuItem extends Component {
 }
 
 MenuItem.propTypes = {
-  menuItems: PropTypes.string.isRequired,
+  menuItems: PropTypes.object.isRequired,
   handleClickMenu: PropTypes.func.isRequired,
 };
 

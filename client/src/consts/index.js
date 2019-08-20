@@ -1,19 +1,3 @@
-// List state
-export const LIST_ITEMS = {
-  ACTIONS: {
-    name: 'actions',
-    description: 'Actions are payloads of information that send data from your application to your store. They are the only source of information for the store.',
-  },
-  STORE: {
-    name: 'store',
-    description: 'The state of your whole application is stored in an object tree within a single store.',
-  },
-  REDUCERS: {
-    name: 'reducers',
-    description: 'Actions describe the fact that something happened, but don\'t specify how the application\'s state changes in response. This is the job of reducers.',
-  },
-};
-
 // Menu state
 export const MENU_ITEMS = {
   items: {
@@ -27,13 +11,10 @@ export const MENU_ITEMS = {
       name: 'JWT토큰 발급',
     },
   },
+  views: {},
   loading: false,
   loaded: false,
-}
-
-// // default_state
-export const LISTS = { items: LIST_ITEMS, itemPreview: null, itemView: null };
-
+};
 
 // User Action
 export const USER_ACTIONS = {
@@ -63,23 +44,9 @@ export const MENU_ACTIONS = {
   MENU_FAILURE: 'MENU_FAILURE',
 };
 
-// Home Action
-
-
-// Control Action
-
-
 // Alert Action
 export const ALERT_ACTIONS = {
   SUCCESS: 'ALERT_SUCCESS',
   ERROR: 'ALERT_ERROR',
   CLEAR: 'ALERT_CLEAR',
-};
-
-// List Action [deprecated]
-export const LIST_ACTIONS = {
-  ITEM_PREVIEW: 'ITEM_PREVIEW',
-  ITEM_VIEW: 'ITEM_VIEW',
-  ITEM_ADD: 'ITEM_ADD',
-  ITEM_CLEAR: 'ITEM_CLEAR',
 };

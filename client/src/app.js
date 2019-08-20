@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from './components/home';
-import Login from './containers/login';
-import PrivateRoute from './components/Login/privateRoute';
+import Home from './components/Home';
+import Login from './containers/Login';
+import Private_route from './components/Login/private_route';
 import { history } from './helper/history';
 import { alertActions } from './actions';
 
@@ -13,7 +13,6 @@ class App extends Component {
 
     const { dispatch } = this.props;
     history.listen((location, action) => {
-      console.log('history.listen');
       dispatch(alertActions.clear());
     });
   }
@@ -24,7 +23,7 @@ class App extends Component {
       <div>
           <Router history={history}>
             <div>
-              <PrivateRoute exact path="/" component={Home} />
+              <Private_route exact path="/" component={Home} />
               <Route path="/login" component={Login} />
             </div>
           </Router>

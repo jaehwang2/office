@@ -15,9 +15,7 @@ export default class Request {
       url,
       data: { params },
     })
-      .then(this.handleResponse)
-      .catch()
-      .then();
+      .then(this.handleResponse);
   }
 
   _get(path, params = {}) {
@@ -29,21 +27,20 @@ export default class Request {
   }
 
   handleResponse(response) {
-    console.log(response)
-    return response.json().then((data) => {
-      console.log("hanldeRes");
-      if (!response.ok) {
-        if (response.status === 401) {
-          // auto logout if 401 response returned from api
-          logout();
-          location.reload(true);
-        }
-        const error = (data && data.error) || response.statusText;
-        return Promise.reject(error);
-      }
-      console.log(data);
-      return data;
-    });
+    const status = response.status
+    const data = response.data
+    if (!status === 200) {
+      const error = (data && data.error) || response.statusText;
+      // return new Promise.reject(error);
+      return new Promise(reject => {
+        console.log(error)
+      })
+    }
+    console.log('hey')
+    // return Promise.resolve(data);
+    return new Promise(resolve => {
+      console.log('hey')
+    })
   }
 }
 
